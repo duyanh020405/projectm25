@@ -1,0 +1,135 @@
+{
+  "admin": {
+    "comments": {
+      "User_comment": "Duy Anh",
+      "comment": "wwww"
+    }
+  },
+  "comments": [
+    {
+      "comments": {
+        "User_comment": "Duy Anh",
+        "comment": "aaa"
+      },
+      "id": 1
+    },
+    {
+      "comments": {
+        "User_comment": "Duy Anh",
+        "comment": "sssss"
+      },
+      "id": 2
+    }
+  ],
+  "user": [
+    {
+      "id": "x4xz5xfxx",
+      "name": "Duy Anh",
+      "email": "duyanh@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "address": "",
+      "card": [],
+      "buy": [],
+      "like": [],
+      "blocked": false,
+      "block": false
+    },
+    {
+      "id": "73ur6irzl",
+      "name": "lạc trôi",
+      "email": "bui0913291882@gmail.com",
+      "password": "123456789",
+      "confirmPassword": "123456789",
+      "address": "",
+      "card": [],
+      "like": [],
+      "buy": [],
+      "blocked": false
+    },
+    {
+      "id": "a1b2c3d4",
+      "name": "Nguyen Van A",
+      "email": "nguyenvana@example.com",
+      "password": "password123",
+      "confirmPassword": "password123",
+      "address": "Hanoi, Vietnam",
+      "like": [],
+      "card": [],
+      "buy": [],
+      "blocked": false
+    },
+    {
+      "id": "b5c6d7e8",
+      "name": "Le Thi B",
+      "email": "lethib@example.com",
+      "password": "password456",
+      "confirmPassword": "password456",
+      "address": "Ho Chi Minh City, Vietnam",
+      "card": [],
+      "buy": [],
+      "blocked": false
+    },
+    {
+      "id": "c9d0e1f2",
+      "name": "Tran Van C",
+      "email": "tranvanc@example.com",
+      "password": "pass789",
+      "confirmPassword": "pass789",
+      "address": "Da Nang, Vietnam",
+      "card": [],
+      "buy": [],
+      "blocked": false
+    },
+    {
+      "id": "c9d0e1f2",
+      "name": "Tran Van C",
+      "email": "tranvanc@example.com",
+      "password": "pass789",
+      "confirmPassword": "pass789",
+      "address": "Da Nang, Vietnam",
+      "card": [],
+      "buy": [],
+      "blocked": false
+    },
+    {
+      "id": "g3h4i5j6",
+      "name": "Pham Thi D",
+      "email": "phamthid@example.com",
+      "password": "pass987",
+      "confirmPassword": "pass987",
+      "address": "Can Tho, Vietnam",
+      "card": [],
+      "buy": [],
+      "blocked": false
+    },
+    {
+      "id": "9jfy7jdn",
+      "name": "Existing User",
+      "email": "existing@example.com",
+      "password": "existingpass",
+      "confirmPassword": "existingpass",
+      "address": "Existing Address",
+      "card": [],
+      "buy": [],
+      "blocked": false
+    }
+  ],
+  "products": [
+    {
+      "id": "bvz46yymi",
+      "name": "Áo nỉ trơn",
+      "price": "11",
+      "img": "https://th.bing.com/th/id/R.dafcec89f6872ee5aaaf2f68053202c7?rik=dorEgh1mczUQCw&riu=http%3a%2f%2fhoaquasaykho.net%2fwp-content%2fuploads%2f2019%2f08%2ftac-dung-cua-qua-oi-2.jpg&ehk=526SqoN1VLXSWdMZ9NuqcUMG9qk9xgXuad6I8LWWd%2fI%3d&risl=&pid=ImgRaw&r=0",
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "quantity": "999",
+      "category": "category1",
+      "description": "123445"
+    }
+  ]
+}
