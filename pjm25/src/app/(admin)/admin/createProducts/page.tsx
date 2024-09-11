@@ -316,11 +316,21 @@ export default function Page() {
                   value={newProduct.category}
                   onChange={handleCategoryChange}
                 >
-                  <option value="">Chọn danh mục</option>
-                  <option value="new">Thêm danh mục mới</option>
-                  <option value="category1">Danh mục 1</option>
-                  <option value="category2">Danh mục 2</option>
-                  <option value="category3">Danh mục 3</option>
+                  <option value="">Chọn danh mục </option>
+                  <option value="Áo nỉ">Áo nỉ</option>
+                  <option value="Áo dù">Áo dù</option>
+                  <option value="Ao kaki">Áo kaki</option>
+                  <option value="Playze nam">Playze nam</option>
+                  <option value="Áo thun ngắn">Áo thun ngắn</option>
+                  <option value="Áo thun dài">Áo thun dài</option>
+                  <option value="Áo thun polo">Áo thun polo</option>
+                  <option value="Áo sơ mi ngắn tay">Áo sơ mi ngắn tay</option>
+                  <option value="Áo sơ mi dài tay">Áo sơ mi dài tay</option>
+                  <option value="Quần short kaki">Quần short kaki</option>
+                  <option value="Quần jean">Quần jean</option>
+                  <option value="Quần kaki">Quần kaki</option>
+                  <option value="Quần vải">Quần vải</option>
+                  <option value="new">Thêm loại mới</option>
                 </select>
                 {showNewTypeInput && (
                   <input

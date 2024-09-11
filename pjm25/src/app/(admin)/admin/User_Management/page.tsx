@@ -9,6 +9,7 @@ import axios from "axios";
 import Image from "next/image";
 import logo from "@/app/logo.png";
 import ConfirmationModal from "@/components/ConfirmationModal";
+import swal from "sweetalert";
 
 export default function Page() {
   const router = useRouter();
@@ -33,6 +34,50 @@ export default function Page() {
       router.push("/login");
     }
   };
+  ///////////////////////
+  const handleBlockToggle = async () => {
+    if (currentUser) {
+      swal({
+        title: "Are you sure?",
+        text: currentUser.block
+          ? "Do you want to unblock this user?"
+          : "Do you want to block this user?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(async (willToggle) => {
+        if (willToggle) {
+          try {
+            await axios.patch(`http://localhost:8080/user/${currentUser.id}`, {
+              block: !currentUser.block,
+            });
+  
+            setUsers(
+              users.map((user) =>
+                user.id === currentUser.id
+                  ? { ...user, block: !currentUser.block }
+                  : user
+              )
+            );
+  
+            // Hiển thị thông báo thành công với SweetAlert
+            swal("Success!", currentUser.block ? "User has been unblocked!" : "User has been blocked!", {
+              icon: "success",
+            });
+            closeModal();
+          } catch (error) {
+            console.error("Error updating user block status:", error);
+            swal("Error!", "Failed to update user status. Please try again.", {
+              icon: "error",
+            });
+          }
+        } else {
+          swal("Cancelled", "No changes were made to the user's status.", "info");
+        }
+      });
+    }
+  };
+  
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -84,25 +129,7 @@ export default function Page() {
     setCurrentUser(null);
   };
 
-  const handleBlockToggle = async () => {
-    if (currentUser) {
-      try {
-        await axios.patch(`http://localhost:8080/user/${currentUser.id}`, {
-          block: !currentUser.block,
-        });
-        setUsers(
-          users.map((user) =>
-            user.id === currentUser.id
-              ? { ...user, block: !currentUser.block }
-              : user
-          )
-        );
-        closeModal();
-      } catch (error) {
-        console.error("Error updating user block status:", error);
-      }
-    }
-  };
+  
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);

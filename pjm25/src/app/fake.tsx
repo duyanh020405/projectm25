@@ -1,5 +1,4 @@
-"use client"
-import { GrLogout } from "react-icons/gr";
+"use client";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -49,7 +48,7 @@ export default function RotatingMessages() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [userOnl, setUserOnl] = useState<any>();
+  const [userOnl, setUserOnl] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -63,46 +62,39 @@ export default function RotatingMessages() {
 
   const images = [s1, s2, s3, s4, s5, s6];
   const adImages = [img1, img2, img3, img4, img1, img2, img3];
-  
+
   useEffect(() => {
-    const storedUser = localStorage.getItem("userOnl");
-  
-    if (!storedUser) {
+    const user = localStorage.getItem("userOnl");
+    if (!user) {
       router.push("/login");
     } else {
       try {
-        const parsedUser = JSON.parse(storedUser);
-        if (parsedUser) {
-          setUserOnl(parsedUser);
-        } else {
-          router.push("/login");
-        }
+        const parsedUser = JSON.parse(user);
+        setUserOnl(parsedUser);
       } catch (error) {
-        console.error("Error parsing user from localStorage:", error);
-        router.push("/login");  // Nếu parse lỗi, điều hướng về trang đăng nhập
+        console.error("Error parsing user data from localStorage", error);
+        router.push("/login");
       }
     }
-  }, []);
+  }, [router]);
 
-  const informationUser =(id:any)=>{
-  // Chuyển hướng đến trang /infor với id là tham số
-  router.push(`/infor/${id}`);
-  }
-  
+  const fetchProducts = async (category = "") => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/products?category=${category}`
+      );
+      setProducts(response.data);
+    } catch (error) {
+      setError("Error fetching products");
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/products");
-        setProducts(response.data);
-      } catch (error) {
-        setError("Error fetching products");
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchProducts();
   }, []);
 
@@ -134,47 +126,28 @@ export default function RotatingMessages() {
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    filterProductsByCategory(category);
-  };
-
-  const filterProductsByCategory = (category: string) => {
-    if (category) {
-      const filtered = products.filter((product) =>
-        (product.category ? product.category.toLowerCase() : "").includes(category.toLowerCase())
-      );
-      setProducts(filtered);
-    } else {
-      axios
-        .get("http://localhost:8080/products")
-        .then((response) => {
-          setProducts(response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching products:", error);
-        });
-    }
+    fetchProducts(category);
   };
 
   const resetFilters = () => {
     setSelectedCategory("");
-    axios
-      .get("http://localhost:8080/products")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((error) => {
-        console.error("Error resetting filters:", error);
-      });
+    fetchProducts();
   };
 
-  const filteredProducts = useMemo(() => 
-    products.filter((product) =>
-      (product.name ? product.name.toLowerCase() : "").includes(searchTerm)
-    ), [products, searchTerm]);
+  const filteredProducts = useMemo(
+    () =>
+      products.filter((product) =>
+        (product.name ? product.name.toLowerCase() : "").includes(searchTerm)
+      ),
+    [products, searchTerm]
+  );
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -189,7 +162,9 @@ export default function RotatingMessages() {
       </div>
 
       <div className="text-center opacity-70 mb-8">
-        <h1 className="text-3xl font-bold text-hsl(218, 51%, 25%)">Shop KenTa.vn</h1>
+        <h1 className="text-3xl font-bold text-hsl(218, 51%, 25%)">
+          Shop KenTa.vn
+        </h1>
         <p>Nơi mà bạn có thể lựa chọn cho mình những bộ trang phục ưng ý nhất</p>
       </div>
 
@@ -220,7 +195,7 @@ export default function RotatingMessages() {
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 mt-4">
-      <Select onValueChange={handleCategoryChange} value={selectedCategory}>
+        <Select onValueChange={handleCategoryChange} value={selectedCategory}>
           <SelectTrigger className="w-44">
             <SelectValue placeholder="Chọn loại áo khoác" />
           </SelectTrigger>
@@ -243,73 +218,49 @@ export default function RotatingMessages() {
           </SelectContent>
         </Select>
 
-        <Select onValueChange={handleCategoryChange} value={selectedCategory}>
-          <SelectTrigger className="w-44">
-            <SelectValue placeholder="Chọn loại áo sơ mi" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="Áo sơ mi ngắn tay">Áo sơ mi ngắn tay</SelectItem>
-            <SelectItem value="Áo sơ mi dài ta">Áo sơ mi dài tay</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select onValueChange={handleCategoryChange} value={selectedCategory}>
-          <SelectTrigger className="w-44">
-            <SelectValue placeholder="Chọn loại quần dài" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="Quần jean">Quần jean</SelectItem>
-            <SelectItem value="Quần kaki">Quần kaki</SelectItem>
-            <SelectItem value="Quần vải">Quần vải</SelectItem>
-          </SelectContent>
-        </Select>
         <Button onClick={resetFilters} className="bg-red-500">
           Reset
         </Button>
       </div>
-      <br /><br />
 
-      <h4>Tìm kiếm sản phẩm :</h4>
       <Input
         type="text"
         placeholder="Tìm kiếm sản phẩm"
         value={searchTerm}
         onChange={handleSearch}
         className="my-4 px-4 py-2 border rounded-lg shadow-sm w-80"
-        style={{position:'relative',width:'500px'}}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {loading ? (
           <p>Loading products...</p>
         ) : error ? (
           <p>{error}</p>
-        ) : (
-          currentProducts.map((product:any) => (
+        ) : currentProducts.length > 0 ? (
+          currentProducts.map((product) => (
             <div
               key={product.id}
-              className="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="border rounded-lg p-4 shadow-lg hover:shadow-2xl transition-shadow"
             >
               <Image
-                src={product.img || ""}
+                src={product.imageUrl || "/path-to-placeholder-image.png"}
                 alt={product.name}
                 width={300}
                 height={200}
                 className="object-cover w-full h-48 mb-4"
               />
-              <h2 className="text-xl font-semibold mb-2">Name :{product.name}</h2>
-              <p className="text-lg font-bold mb-2">Price : {product.price}$</p>
-              <Button onClick={() => viewDetails(product.id)} className="w-full bg-red-700 text-white">
-                Xem chi tiết
+              <h2 className="text-lg font-bold mb-2">{product.name}</h2>
+              <p className="text-gray-700 mb-2">Price: ${product.price}</p>
+              <Button onClick={() => viewDetails(product.id)}>
+                View Details
               </Button>
-              <Button onClick={() => viewDetails(product.id)} className="w-full bg-blue-700 text-white">
-                Buy now
-              </Button>
-              <Button onClick={() => viewDetails(product.id)} className="w-full bg-yellow-700 text-white">Bình luận sản phẩm </Button>
             </div>
           ))
+        ) : (
+          <p>No products found</p>
         )}
       </div>
+
       <div className="my-8">
         <button
           onClick={() => paginate(currentPage - 1)}
@@ -325,45 +276,6 @@ export default function RotatingMessages() {
         >
           Next
         </button>
-      </div>
-
-      <div className="flex justify-center mt-6">
-        <Button
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-300 rounded-full mx-2"
-        >
-          Previous
-        </Button>
-        <Button
-          onClick={() => paginate(currentPage + 1)}
-          disabled={indexOfLastProduct >= filteredProducts.length}
-          className="px-4 py-2 bg-gray-300 rounded-full mx-2"
-        >
-          Next
-        </Button>
-      </div>
-
-      <div className="fixed bottom-0 w-full bg-blue-500 text-white py-4">
-        <p className="text-center">{messages[currentMessageIndex].text}</p>
-      </div>
-
-      <div className="fixed top-0 right-0 p-4">
-        <Button>
-          <div style={{display:'flex' , flexDirection:'row'}}>
-          <FaUserCircle onClick={()=>informationUser(userOnl?.id)} className="text-2xl" />
-          <h3 className="text-2xl">{userOnl?.name}</h3>
-          </div>
-        </Button>
-        <Button>
-          <MdOutlineShoppingCart className="text-2xl" />
-        </Button>
-        <Button>
-          <FaSearch className="text-2xl" />
-        </Button>
-        <Button>
-        <GrLogout className="text-2xl text-red-600" />
-        </Button>
       </div>
     </div>
   );
