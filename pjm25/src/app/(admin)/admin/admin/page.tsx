@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { IoIosLogOut } from "react-icons/io";
 import Image from "next/image";
-// import logo from '../../../../app/logo.png';
+import logo from '@/app/logo.png'
 import { FaRegUserCircle } from "react-icons/fa";
 import { TiThMenu } from 'react-icons/ti';
 import axios from 'axios';
@@ -52,7 +52,7 @@ export default function Page() {
     <div className="min-h-screen bg-gray-100">
       {/* Logo Section */}
       <div className="flex justify-center items-center py-8">
-        <Image src={''} alt="Logo" width={300} height={130} />
+        <Image src={logo} alt="Logo" width={300} height={130} />
       </div>
 
       {/* Header Section */}
@@ -93,6 +93,13 @@ export default function Page() {
               onClick={() => handleChoice('createProducts')}
             >
               Create Products
+            </button>
+            <br />
+            <button
+              className={`block w-full py-2 ${selectedItem === 'createProducts' ? activeStyle : inactiveStyle}`} 
+              onClick={() => handleChoice('Products_Manger')}
+            >
+              Products Manager
             </button>
           </div>
         </div>

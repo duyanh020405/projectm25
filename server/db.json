@@ -116,22 +116,26 @@
   "products": [
     {
       "id": "bvz46yymi",
-      "name": "Áo nỉ trơn",
+      "name": "Áo dù trơn",
       "price": "11",
       "img": "https://th.bing.com/th/id/R.dafcec89f6872ee5aaaf2f68053202c7?rik=dorEgh1mczUQCw&riu=http%3a%2f%2fhoaquasaykho.net%2fwp-content%2fuploads%2f2019%2f08%2ftac-dung-cua-qua-oi-2.jpg&ehk=526SqoN1VLXSWdMZ9NuqcUMG9qk9xgXuad6I8LWWd%2fI%3d&risl=&pid=ImgRaw&r=0",
       "size": [
         "S",
         "M",
+        "2XL",
+        "3XL",
+        "XL",
         "L",
-        "XL"
+        "4XL",
+        "5XL"
       ],
       "quantity": "999",
-      "category": "Áo dù",
+      "category": "Áo khoác dù",
       "description": "123445"
     },
     {
       "id": "epdt527jy",
-      "name": "Áo nỉ trơn 2",
+      "name": "Áo Dù 2",
       "price": "190",
       "img": "https://th.bing.com/th/id/R.dafcec89f6872ee5aaaf2f68053202c7?rik=dorEgh1mczUQCw&riu=http%3a%2f%2fhoaquasaykho.net%2fwp-content%2fuploads%2f2019%2f08%2ftac-dung-cua-qua-oi-2.jpg&ehk=526SqoN1VLXSWdMZ9NuqcUMG9qk9xgXuad6I8LWWd%2fI%3d&risl=&pid=ImgRaw&r=0",
       "size": [
@@ -141,7 +145,7 @@
         "L"
       ],
       "quantity": "10",
-      "category": "Áo dù",
+      "category": "Áo khoác dù",
       "description": "<option value=\"Áo nỉ\">Áo nỉ</option>\n<option value=\"Áo dù\">Áo dù</option>\n<option value=\"Ao kaki\">Áo kaki</option>\n<option value=\"Playze nam\">Playze nam</option>\n<option value=\"Áo thun ngắn\">Áo thun ngắn</option>\n<option value=\"Áo thun dài\">Áo thun dài</option>\n<option value=\"Áo thun polo\">Áo thun polo</option>\n<option value=\"Áo sơ mi ngắn tay\">Áo sơ mi ngắn tay</option>\n<option value=\"Áo sơ mi dài tay\">Áo sơ mi dài tay</option>\n<option value=\"Quần jean\">Quần jean</option>\n<option value=\"Quần kaki\">Quần kaki</option>\n<option value=\"Quần vải\">Quần vải</option>"
     },
     {
@@ -155,7 +159,7 @@
         "L"
       ],
       "quantity": "150",
-      "category": "Áo thun",
+      "category": "Áo thun ngắn tay",
       "description": "Áo thun chất liệu cotton, thoáng mát, dễ phối đồ."
     },
     {
@@ -169,7 +173,7 @@
         "XL"
       ],
       "quantity": "200",
-      "category": "Quần jean",
+      "category": "Quần jean kaki",
       "description": "Quần jean nam, chất liệu denim bền bỉ, phong cách trẻ trung."
     },
     {
@@ -184,7 +188,7 @@
         "XL"
       ],
       "quantity": "80",
-      "category": "Áo sơ mi",
+      "category": "Áo sơ mi dài",
       "description": "Áo sơ mi dài tay, chất liệu vải cao cấp, thiết kế lịch sự."
     },
     {
@@ -224,7 +228,7 @@
         "L"
       ],
       "quantity": "160",
-      "category": "Quần short",
+      "category": "Quần short vải",
       "description": "Quần kaki, chất liệu mềm mại, phù hợp cho cả công việc và dạo phố."
     },
     {
@@ -238,7 +242,7 @@
         "XL"
       ],
       "quantity": "140",
-      "category": "Áo thun",
+      "category": "Áo thun dài tay",
       "description": "Áo thun dài tay, giữ ấm tốt cho mùa thu."
     },
     {
@@ -267,7 +271,7 @@
         "XL"
       ],
       "quantity": "110",
-      "category": "Quần",
+      "category": "Quần vải ",
       "description": "Quần vải mềm mại, thoải mái cho cả ngày dài."
     },
     {
@@ -281,7 +285,7 @@
         "L"
       ],
       "quantity": "150",
-      "category": "Áo sơ mi",
+      "category": "Áo sơ mi ngắn tay",
       "description": "Áo sơ mi ngắn tay, chất liệu nhẹ nhàng, thích hợp cho mùa hè."
     },
     {
@@ -296,7 +300,7 @@
         "XL"
       ],
       "quantity": "90",
-      "category": "Áo sơ mi",
+      "category": "Áo sơ mi ngắn tay",
       "description": "Áo sơ mi trắng tinh khôi, phù hợp cho các buổi tiệc và sự kiện."
     },
     {
@@ -310,7 +314,7 @@
         "XL"
       ],
       "quantity": "130",
-      "category": "Áo thun",
+      "category": "Áo thun polo",
       "description": "Áo thun polo, phong cách thể thao, phù hợp cho hoạt động ngoài trời."
     },
     {
@@ -324,7 +328,7 @@
         "L"
       ],
       "quantity": "120",
-      "category": "Quần",
+      "category": "Quần short kaki",
       "description": "Quần short thoáng mát, lý tưởng cho mùa hè."
     },
     {
@@ -352,7 +356,7 @@
         "L"
       ],
       "quantity": "100",
-      "category": "Áo sơ mi",
+      "category": "Áo sơ mi dài tay",
       "description": "Áo sơ mi kẻ sọc, thiết kế trẻ trung, hiện đại."
     },
     {
@@ -366,7 +370,7 @@
         "XL"
       ],
       "quantity": "90",
-      "category": "Quần",
+      "category": "Quần vải",
       "description": "Quần âu, chất liệu vải cao cấp, phù hợp cho môi trường làm việc."
     },
     {
@@ -380,7 +384,7 @@
         "L"
       ],
       "quantity": "200",
-      "category": "Áo thun",
+      "category": "Áo thun ngắn",
       "description": "Áo thun cơ bản, dễ phối đồ, chất liệu thoáng mát."
     },
     {
@@ -394,7 +398,7 @@
         "L"
       ],
       "quantity": "70",
-      "category": "Áo khoác",
+      "category": "Áo khoác dù",
       "description": "Áo khoác dù kaki xám  thời trang, phù hợp cho các dịp đi chơi."
     },
     {
@@ -409,7 +413,7 @@
         "XL"
       ],
       "quantity": "180",
-      "category": "Áo thun",
+      "category": "Áo thun ngắn tay",
       "description": "Áo thun in hình độc đáo, phù hợp với phong cách cá nhân."
     },
     {
@@ -469,20 +473,6 @@
       "description": "Áo thun nam, chất liệu vải cao cấp, thích hợp cho các buổi tiệc."
     },
     {
-      "id": "ij2kl5mno",
-      "name": "Áo hoodie zip",
-      "price": "75",
-      "img": "https://cf.shopee.co.th/file/d0c7b897af2f5517bd78f3fc018f0310",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "quantity": "70",
-      "category": "Áo nỉ",
-      "description": "Áo hoodie zip, ấm áp và tiện lợi cho mùa đông."
-    },
-    {
       "id": "jk3lm6nop",
       "name": "Áo sơ mi hoa",
       "price": "55",
@@ -507,7 +497,7 @@
         "L"
       ],
       "quantity": "110",
-      "category": "Quần",
+      "category": "Quần vải",
       "description": "Quần short kaki, chất liệu bền bỉ, thích hợp cho mùa hè."
     },
     {
@@ -523,19 +513,6 @@
       "quantity": "200",
       "category": "Áo thun ngắn tay",
       "description": "Áo thun cổ tròn, đơn giản nhưng phong cách."
-    },
-    {
-      "id": "mn6op9qrs",
-      "name": "Áo khoác chống nước",
-      "price": "85",
-      "img": "https://cf.shopee.vn/file/65707361376609a87a7d45f00eb2e9d6",
-      "size": [
-        "M",
-        "L"
-      ],
-      "quantity": "75",
-      "category": "Áo dù",
-      "description": "Áo khoác chống nước, bảo vệ tốt trong các ngày mưa."
     }
   ]
 }

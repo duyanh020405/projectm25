@@ -86,7 +86,7 @@ export default function RotatingMessages() {
 
   const informationUser =(id:any)=>{
   // Chuyển hướng đến trang /infor với id là tham số
-  router.push(`/infor/${id}`);
+  router.push(`/infor`);
   }
   
 

@@ -221,6 +221,12 @@ export default function Page() {
             >
               Create Products
             </button>
+            <button
+              className={`block w-full py-2 ${selectedItem === 'createProducts' ? activeStyle : inactiveStyle}`} 
+              onClick={() => handleChoice('Products_Manger')}
+            >
+              Products Manager
+            </button>
           </div>
 
           <div className="flex-1 bg-white p-6 rounded-lg shadow-md ml-8">
@@ -324,7 +330,7 @@ export default function Page() {
                   <option value="Áo thun ngắn">Áo thun ngắn</option>
                   <option value="Áo thun dài">Áo thun dài</option>
                   <option value="Áo thun polo">Áo thun polo</option>
-                  <option value="Áo sơ mi ngắn tay">Áo sơ mi ngắn tay</option>
+                   <option value="Áo sơ mi ngắn tay">Áo sơ mi ngắn tay</option>
                   <option value="Áo sơ mi dài tay">Áo sơ mi dài tay</option>
                   <option value="Quần short kaki">Quần short kaki</option>
                   <option value="Quần jean">Quần jean</option>
